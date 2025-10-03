@@ -1,28 +1,22 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-// Halaman Publik (tidak perlu login)
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| LaraPress sekarang menggunakan Filament untuk semua halaman.
+| Semua routing diatur oleh Filament Panel Provider.
+|
+| - Halaman Utama (/)         : Custom Page Filament
+| - Login (/login)            : Filament Auth
+| - Register (/register)      : Filament Auth
+| - Dashboard (/dashboard)    : Filament Dashboard
+| - Profile (/profile)        : Filament Profile
+|
+*/
 
-Route::get('/tentang-kami', function () {
-    return view('about');
-})->name('about');
-
-// Halaman Dashboard (perlu autentikasi)
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route untuk Profile Management (perlu autentikasi)
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-// Route untuk Autentikasi (Login, Register, dll)
-require __DIR__.'/auth.php';
+// Semua routes sekarang dihandle oleh Filament
+// Lihat: app/Providers/Filament/AdminadminPanelProvider.php

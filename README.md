@@ -8,93 +8,63 @@ Proyek ini dibuat sebagai bagian dari pembelajaran Laravel framework. LaraPress 
 
 ## 🚀 Fitur yang Sudah Diimplementasikan
 
-### 1. **Halaman Utama (Welcome Page)**
-   - Mengubah tampilan default Laravel menjadi halaman sederhana
-   - Menampilkan judul "Selamat Datang di LaraPress"
-   - Struktur HTML yang bersih dan minimal
+### 1. **Full-Filament Application** ⭐ NEW
+   - Semua halaman dirender menggunakan Filament Panel
+   - Custom header konsisten di semua halaman
+   - Dashboard dengan real-time widgets
+   - Unified authentication system
 
-### 2. **Halaman Tentang Kami**
-   - Route: `/tentang-kami`
-   - Menampilkan informasi tentang LaraPress
-   - Menjelaskan tujuan proyek sebagai pembelajaran Laravel 12
+### 2. **Sistem Autentikasi**
+   - Login dan Registrasi (Filament Auth)
+   - Profile Management
+   - Password hashing & CSRF protection
+   - Session security & rate limiting
 
-## 📁 Struktur File yang Dimodifikasi
+### 3. **Halaman Publik**
+   - Halaman Utama: Custom Filament Page dengan hero section
+   - Features showcase
+   - Call-to-Action untuk registrasi
+   - Responsive design dengan Tailwind CSS
 
-### File yang Dibuat/Dimodifikasi:
+## � Dokumentasi Praktikum
 
-1. **`resources/views/welcome.blade.php`**
-   - Mengubah tampilan default Laravel yang kompleks menjadi struktur HTML sederhana
-   - Menampilkan pesan sambutan untuk pengunjung blog
+Proyek ini dikembangkan melalui serangkaian praktikum:
 
-2. **`resources/views/about.blade.php`** (BARU)
-   - File view baru untuk halaman "Tentang Kami"
-   - Berisi informasi tentang LaraPress sebagai proyek pembelajaran
-
-3. **`routes/web.php`**
-   - Menambahkan route baru `/tentang-kami` yang mengarah ke view `about.blade.php`
-
-## 🛠️ Langkah-langkah Implementasi
-
-### Step 1: Modifikasi Halaman Welcome
-Mengubah file `resources/views/welcome.blade.php` dari tampilan default Laravel (266 baris) menjadi HTML sederhana:
-
-```html
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Datang di LaraPress</title>
-</head>
-<body>
-    <h1>Selamat Datang di Blog LaraPress</h1>
-    <p>Ini adalah halaman utama dari aplikasi blog kita.</p>
-</body>
-</html>
-```
-
-### Step 2: Membuat Route Baru
-Menambahkan route baru di `routes/web.php`:
-
-```php
-Route::get('/tentang-kami', function () {
-    return view('about');
-});
-```
-
-### Step 3: Membuat View About
-Membuat file baru `resources/views/about.blade.php`:
-
-```html
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami - LaraPress</title>
-</head>
-<body>
-    <h1>Tentang LaraPress</h1>
-    <p>LaraPress adalah aplikasi blog sederhana yang dibuat dengan Laravel 12.</p>
-    <p>Proyek ini dibuat untuk tujuan pembelajaran dan pengembangan keterampilan.</p>
-</body>
-</html>
-```
+| Praktikum | Topik | Dokumentasi | Status |
+|-----------|-------|-------------|--------|
+| **Praktikum 1** | Views & Routing | [� Praktikum1.md](docs/Praktikum1.md) | ✅ Selesai |
+| **Praktikum 2** | Authentication (Breeze) | [📄 Praktikum2.md](docs/Praktikum2.md) | ✅ Selesai |
+| **Praktikum 3** | Full-Filament Migration | [📄 Praktikum3.md](docs/Praktikum3.md) | ✅ Selesai |
+| **Praktikum 4** | CRUD Posts & Categories | Coming Soon | 🚧 Planned |
 
 ## 🌐 Endpoint yang Tersedia
 
-| Route | Method | Deskripsi |
-|-------|--------|-----------|
-| `/` | GET | Halaman utama LaraPress |
-| `/tentang-kami` | GET | Halaman tentang LaraPress |
+| Route | Method | Deskripsi | Auth Required |
+|-------|--------|-----------|---------------|
+| `/` | GET | Halaman utama (Filament Custom Page) | ❌ |
+| `/login` | GET/POST | Halaman login Filament | ❌ |
+| `/register` | GET/POST | Halaman registrasi Filament | ❌ |
+| `/dashboard` | GET | Dashboard dengan widgets | ✅ |
+| `/profile` | GET/POST | Profile management | ✅ |
 
 ## 💻 Teknologi yang Digunakan
 
+### Backend
 - **Framework**: Laravel 12
 - **PHP Version**: 8.x
-- **Database**: SQLite (default)
-- **Frontend**: Blade Template Engine, HTML, CSS
+- **Database**: SQLite (development)
+- **Admin Panel**: Filament 3.3
+
+### Frontend (TALL Stack)
+- **T**ailwind CSS - Utility-first CSS framework
+- **A**lpine.js - Lightweight JavaScript framework
+- **L**ivewire - Full-stack framework for Laravel
+- **L**aravel - PHP framework
+
+### Tools
 - **Build Tool**: Vite
+- **Package Manager**: Composer & NPM
+- **Version Control**: Git
 
 ## 📦 Instalasi
 
@@ -141,15 +111,36 @@ Halaman utama menampilkan sambutan sederhana kepada pengunjung blog LaraPress.
 
 Semua perubahan telah di-commit dan di-push ke repository dengan pesan commit yang jelas mengenai setiap modifikasi yang dilakukan.
 
+## � Default User Accounts
+
+Untuk testing, gunakan kredensial berikut:
+
+### Admin Account
+- **Email**: `admin1@larapress.test`
+- **Password**: `password123`
+- **Role**: Administrator
+
+### Test User (jika sudah register)
+- **Email**: `user@larapress.test`
+- **Password**: `password123`
+- **Role**: User
+
+> ⚠️ **Catatan**: Ganti password default untuk production!
+
+---
+
 ## 📝 Rencana Pengembangan
 
-- [ ] Menambahkan sistem autentikasi
-- [ ] Membuat fitur CRUD untuk artikel blog
-- [ ] Menambahkan sistem komentar
-- [ ] Implementasi kategori dan tag
-- [ ] Membuat dashboard admin
-- [ ] Menambahkan styling dengan Tailwind CSS
-- [ ] Implementasi search functionality
+- [x] ✅ Sistem autentikasi (Filament Auth)
+- [x] ✅ Dashboard dengan widgets
+- [x] ✅ Profile management
+- [x] ✅ Custom header konsisten
+- [ ] 🚧 CRUD Posts (Artikel blog)
+- [ ] 🚧 CRUD Categories
+- [ ] 📋 Sistem komentar
+- [ ] 📋 Media upload untuk featured images
+- [ ] 📋 Search & filtering
+- [ ] 📋 Tags system
 
 ## 👨‍💻 Pengembang
 
