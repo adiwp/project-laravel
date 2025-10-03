@@ -31,6 +31,7 @@ class AdminadminPanelProvider extends PanelProvider
             ->login()
             ->registration() // Mengaktifkan halaman registrasi
             ->profile() // Mengaktifkan halaman profil
+            ->homeUrl('/admin/home') // Redirect ke home setelah login
             ->colors([
                 'primary' => Color::Blue,
             ])
@@ -38,7 +39,7 @@ class AdminadminPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->pages([
                 \App\Filament\Pages\HalamanUtama::class,
-                Pages\Dashboard::class,
+                \App\Filament\Pages\Dashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
