@@ -124,14 +124,14 @@
             <p class="text-lg mb-6">Bergabunglah dengan komunitas LaraPress dan dapatkan akses ke semua fitur</p>
             <div class="flex justify-center space-x-4">
                 @guest
-                    <a href="{{ route('filament.adminadmin.auth.login') }}" class="px-6 py-3 bg-white text-purple-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    <a href="/admin/login" class="px-6 py-3 bg-white text-purple-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                         Login
                     </a>
-                    <a href="{{ route('filament.adminadmin.auth.register') }}" class="px-6 py-3 bg-purple-700 text-white rounded-lg font-semibold hover:bg-purple-800 transition-colors border-2 border-white">
+                    <a href="/admin/register" class="px-6 py-3 bg-purple-700 text-white rounded-lg font-semibold hover:bg-purple-800 transition-colors border-2 border-white">
                         Daftar Sekarang
                     </a>
                 @else
-                    <a href="{{ route('filament.adminadmin.pages.dashboard') }}" class="px-6 py-3 bg-white text-purple-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    <a href="/admin" class="px-6 py-3 bg-white text-purple-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                         Ke Dashboard
                     </a>
                 @endguest

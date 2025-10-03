@@ -7,16 +7,18 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| LaraPress sekarang menggunakan Filament untuk semua halaman.
-| Semua routing diatur oleh Filament Panel Provider.
+| LaraPress menggunakan Filament untuk admin dan auth.
+| Homepage adalah custom Filament page yang bisa diakses publik.
 |
-| - Halaman Utama (/)         : Custom Page Filament
-| - Login (/login)            : Filament Auth
-| - Register (/register)      : Filament Auth
-| - Dashboard (/dashboard)    : Filament Dashboard
-| - Profile (/profile)        : Filament Profile
+| - Halaman Utama (/)           : Redirect ke Filament Home
+| - Admin Panel (/admin)        : Filament Panel
+| - Login (/admin/login)        : Filament Auth
+| - Register (/admin/register)  : Filament Auth
+| - Dashboard (/admin/dashboard): Filament Dashboard
 |
 */
 
-// Semua routes sekarang dihandle oleh Filament
-// Lihat: app/Providers/Filament/AdminadminPanelProvider.php
+// Redirect root ke Filament homepage
+Route::get('/', function () {
+    return redirect('/admin/home');
+});
